@@ -34,7 +34,7 @@ public class JsonResponseSupportFactoryBean implements InitializingBean
 	@Override
 	public void afterPropertiesSet() throws Exception
 	{
-		List<HandlerMethodReturnValueHandler> handlers = this.adapter.getReturnValueHandlers();
+		List<HandlerMethodReturnValueHandler> handlers = new ArrayList(this.adapter.getReturnValueHandlers());
 
 		decorateHandlers(handlers);
 		this.adapter.setReturnValueHandlers(handlers);
