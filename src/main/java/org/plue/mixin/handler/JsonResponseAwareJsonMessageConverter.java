@@ -17,6 +17,7 @@ package org.plue.mixin.handler;
 import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.plue.mixin.annotation.JsonMixin;
 import org.plue.mixin.response.ResponseWrapper;
 import org.springframework.http.HttpOutputMessage;
@@ -32,6 +33,13 @@ import java.util.Arrays;
  */
 public class JsonResponseAwareJsonMessageConverter extends MappingJackson2HttpMessageConverter
 {
+	public JsonResponseAwareJsonMessageConverter()
+	{
+		ObjectMapper defaultObjectMapper = new ObjectMapper();
+		defaultObjectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+		setObjectMapper(defaultObjectMapper);
+	}
+
 	@Override
 	protected void writeInternal(Object object, Type type, HttpOutputMessage outputMessage)
 			throws IOException, HttpMessageNotWritableException
@@ -49,6 +57,7 @@ public class JsonResponseAwareJsonMessageConverter extends MappingJackson2HttpMe
 		JsonEncoding encoding = getJsonEncoding(outputMessage.getHeaders().getContentType());
 
 		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
 
 		JsonMixin[] mixins = response.getJsonResponse().mixins();
 		Arrays.stream(mixins)
