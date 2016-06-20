@@ -19,13 +19,12 @@ Based on the work of jackmatt2 (https://github.com/jackmatt2/JsonResponse)
 ## Requirements
 
 * Developer
-  * JDK 1.6 or 1.7 (recommended)
-  * Maven
-  * Eclipse or IntelliJ IDEA
+  * JDK 1.8 or newer
+  * Gradle
+  * IntelliJ IDEA
   * Access to Mac, Windows, and Linux environments for testing and compilation
-  * Ability to sign a JAR file
 * Client-side:
-  * JRE 1.6 or 1.7
+  * JRE 1.8 or newer
 
 ## Environment setup (IntelliJ IDEA)
 
