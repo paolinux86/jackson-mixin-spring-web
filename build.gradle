@@ -43,7 +43,7 @@ sourceSets {
 
 ext {
 	spring_version = '4.3.0.RELEASE'
-	jackson_version = '2.7.4'
+	jackson_version = '2.7.5'
 }
 
 dependencies {
