@@ -42,7 +42,7 @@ sourceSets {
 }
 
 ext {
-	spring_version = '4.2.6.RELEASE'
+	spring_version = '4.3.0.RELEASE'
 	jackson_version = '2.7.4'
 }
 
